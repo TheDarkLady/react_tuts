@@ -1,14 +1,42 @@
 import React from 'react'
 import { useReducer } from 'react'
 
+const initialState = {
+  showTextFlag : false,
+  changeTextStylesFlag : false
+}
+const HIDE_TEXT = 'HIDE_TEXT';
+const SHOW_TEXT = 'SHOW_TEXT';
+const CHANGE_TEXT_STYLE = 'CHANGE_TEXT_STYLE';
+function reducer(state, action) {
+  switch (action.type) {
+    case HIDE_TEXT:
+      console.log(state)
+      return {
+        ...state,
+        showTextFlag : false
+      }
+    case SHOW_TEXT:
+      return {
+        ...state,
+        showTextFlag : true
+      }
+    case CHANGE_TEXT_STYLE:
+      return {
+        ...state,
+        changeTextStylesFlag : !state.changeTextStylesFlag
+      }
+  }
+}
 export default function Use_Reducer_Example() {
     const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <div>
+      {state.showTextFlag ? <h4 style={{color: state.changeTextStylesFlag ? 'red' : 'green'}}>Show Text</h4> : null}
         <h1>Use Reducer Hook Example</h1>
-      <button>Hide Text</button>
-      <button>Show Text</button>
-      <button>Change Text Style</button>
+      <button onClick={() => dispatch({ type: HIDE_TEXT })}>Hide Text</button>
+      <button onClick={() => dispatch({ type: SHOW_TEXT })}>Show Text</button>
+      <button onClick={() => dispatch({ type: CHANGE_TEXT_STYLE })}>Change Text Style</button>
     </div>
   )
 }
