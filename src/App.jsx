@@ -10,17 +10,19 @@ import User from './components/users/user'
 import ContextButtonComponent from './components/context-comp/button'
 import ContextTextComponent from './components/context-comp/text'
 import Use_Reducer_Example from './Use_Reducer_Example'
+import FormComponent from './form'
 function App() {
 
   return (
     <>
-    <Use_Reducer_Example />
+    {/* <Use_Reducer_Example /> */}
     {/* <User /> */}
     {/* <ContextButtonComponent /> */}
     {/* <ContextTextComponent /> */}
     {/* <ProductList ListOfProducts={dummyProductData}/> */}
         {/* <FunctionalComponents/> */}
         {/* <Class_based_component/> */}
+    <FormComponent />
     </>
   )
 }
