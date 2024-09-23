@@ -11,6 +11,8 @@ import ContextButtonComponent from './components/context-comp/button'
 import ContextTextComponent from './components/context-comp/text'
 import Use_Reducer_Example from './Use_Reducer_Example'
 import FormComponent from './form'
+import LoginComponent from './components/login'
+import RegisterComponent from './components/register'
 function App() {
 
   return (
@@ -22,7 +24,11 @@ function App() {
     {/* <ProductList ListOfProducts={dummyProductData}/> */}
         {/* <FunctionalComponents/> */}
         {/* <Class_based_component/> */}
-    <FormComponent />
+    {/* <FormComponent /> */}
+    <div style = {{display: 'flex', gap: '10px'}}>
+        <LoginComponent />
+        <RegisterComponent />
+    </div>
     </>
   )
 }
