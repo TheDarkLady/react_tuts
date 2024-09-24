@@ -8,7 +8,7 @@ const formTypes = {
     BUTTON: "button"
 }
 
-function CommonFormComponent({ formControls = [], formData, setFormData }) {
+function CommonFormComponent({ formControls = [], formData, setFormData, buttonText, onHandleSubmit }) {
     function renderFormElement(singleFormElementItem) {
         let content = null;
         switch (singleFormElementItem.componentType) { // use 'componentType' to match the config
@@ -35,7 +35,7 @@ function CommonFormComponent({ formControls = [], formData, setFormData }) {
     }
 
     return (
-        <form>
+        <form onSubmit={onHandleSubmit}>
             {formControls.length
                 ? formControls.map((singleFormElementItem, index) => (
                     <div key={index}>
@@ -43,6 +43,9 @@ function CommonFormComponent({ formControls = [], formData, setFormData }) {
                     </div>
                 ))
                 : null}
+                <div style={{marginTop: "10px"}}>
+                    <button type='submit'>{buttonText || 'Submit'} </button>
+                </div>
         </form>
     )
 }
